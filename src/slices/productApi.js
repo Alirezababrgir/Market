@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-export const apiSlice = createApi({
+export const productApi = createApi({
   reducerPath: "productsApi",
   baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:9000/" }),
   endpoints: (builder) => ({
@@ -10,4 +10,4 @@ export const apiSlice = createApi({
   }),
 });
 
-export const { useGetAllProductsQuery } = apiSlice;
+export const { useGetAllProductsQuery } = productApi;
