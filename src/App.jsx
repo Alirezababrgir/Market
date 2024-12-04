@@ -1,10 +1,15 @@
 import "./App.css";
-
+import { Helmet } from "react-helmet-async";
+import MainLayout from "./components/mainlayout/mainlayout";
+import Header from "./components/header";
 function App() {
   return (
-    <>
-      <h1 className="text-3xl font-bold underline text-center">مشتبا قطش کو !</h1>
-    </>
+    <MainLayout>
+      <Helmet title="مشتبا فروشگاه استیکر"></Helmet>
+      <div className="mx-auto max-w-6xl">
+        <Header />
+      </div>
+    </MainLayout>
   );
 }
 
