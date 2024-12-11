@@ -1,11 +1,13 @@
 import Header from "../header";
 import Navbar from "../navbar";
+import ProductListing from "../productlist";
 
 const MainLayout = ({ Children }) => {
   return (
-    <div className="flex flex-col min-h-s">
+    <div className="flex-col min-h-s">
       <Navbar />
       <Header />
+      <ProductListing />
       <main>{Children}</main>
     </div>
   );
