@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import CustomNumeralNumericFormat from "./NumberFormat";
+import { useSelector } from "react-redux";
 const Navbar = () => {
+  const { cartitems } = useSelector((state) => state.cart);
   return (
     <header className="border-b border-palette-lighter sticky top-0 z-20 bg-white">
       <div className="flex items-center justify-between mx-auto max-w-6xl px-6 pb-2 pt-4 md:pt-6">
@@ -22,10 +24,11 @@ const Navbar = () => {
               <path d="M2.25 2.25a.75.75 0 0 0 0 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 0 0-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 0 0 0-1.5H5.378A2.25 2.25 0 0 1 7.5 15h11.218a.75.75 0 0 0 .674-.421 60.358 60.358 0 0 0 2.96-7.228.75.75 0 0 0-.525-.965A60.864 60.864 0 0 0 5.68 4.509l-.232-.867A1.875 1.875 0 0 0 3.636 2.25H2.25ZM3.75 20.25a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0ZM16.5 20.25a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Z" />
             </svg>
 
-            {/* {cartItems.length === 0 ? null : ( */}
-            <div className="absolute top-0 right-3 text-xs bg-blue-400 text-gray-900 font-semibold rounded-full py-1 px-2 transform translate-x-10 -translate-y-3">
-              <CustomNumeralNumericFormat value={5}/>
-            </div>
+            {cartitems.length === 0 ? null : (
+              <div className="absolute top-0 right-3 text-xs bg-blue-400 text-gray-900 font-semibold rounded-full py-1 px-2 transform translate-x-10 -translate-y-3">
+                <CustomNumeralNumericFormat value={cartitems.length} />
+              </div>
+            )}
           </Link>
         </div>
       </div>
