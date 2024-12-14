@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import CustomNumeralNumericFormat from "./NumberFormat";
 const Navbar = () => {
   return (
     <header className="border-b border-palette-lighter sticky top-0 z-20 bg-white">
@@ -6,7 +7,7 @@ const Navbar = () => {
         <Link to="/" className="cursor-pointer">
           <h1 className="flex no-underline">
             <span className="text-xl font-primary font-bold tracking-tight pt-1">
-              فروشگاه استیکر مشتبا
+              فروشگاه استیکر موش تابا
             </span>
           </h1>
         </Link>
@@ -23,13 +24,8 @@ const Navbar = () => {
 
             {/* {cartItems.length === 0 ? null : ( */}
             <div className="absolute top-0 right-3 text-xs bg-blue-400 text-gray-900 font-semibold rounded-full py-1 px-2 transform translate-x-10 -translate-y-3">
-              {/* <CustomNumeralNumericFormat
-                                value={cartItems.length}
-                                thousandSeparator=","
-                            /> */}
-              2
+              <CustomNumeralNumericFormat value={5}/>
             </div>
-            {/* )} */}
           </Link>
         </div>
       </div>
