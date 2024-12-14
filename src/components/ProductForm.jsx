@@ -43,7 +43,7 @@ const ProductForm = ({ product }) => {
       <button
         className={atcBtnStyle}
         aria-label="cart-button"
-        onClick={() => handleAddToCart({ ...product, cartQuantity: qty })}
+        onClick={() => handleAddToCart({ ...product, countcart: qty })}
       >
         اضافه به سبد خرید
         <i className="fa fa-cart-arrow-down w-5 mr-2" aria-hidden="true"></i>

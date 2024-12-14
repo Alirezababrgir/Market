@@ -1,11 +1,16 @@
 import "./App.css";
-import { Helmet } from "react-helmet-async";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 import MainLayout from "./components/mainlayout/mainlayout";
 function App() {
   return (
-    <MainLayout>
-      <Helmet title="مشتبا فروشگاه استیکر"></Helmet>
-    </MainLayout>
+    <>
+      <HelmetProvider>
+        <Helmet title="فروشگاه استیکر" />
+      </HelmetProvider>
+      <MainLayout>
+        <Helmet title="مشتبا فروشگاه استیکر"></Helmet>
+      </MainLayout>
+    </>
   );
 }
 

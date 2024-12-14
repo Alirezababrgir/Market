@@ -3,7 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import CustomNumeralNumericFormat from "./NumberFormat";
-import { addCart, getTotal } from "../slices/cartSlice";
+import {
+  addCart,
+  getTotal,
+  decreaseCart,
+  removeFromCart,
+} from "../slices/cartSlice";
 
 const CartTable = () => {
   const cart = useSelector((state) => state.cart);
@@ -15,6 +20,22 @@ const CartTable = () => {
 
   const handleAddToCart = (product) => {
     dispatch(addCart(product));
+  };
+
+  const handledecreaseCart = (product) => {
+    dispatch(decreaseCart(product));
+  };
+
+  const handleremoveFromCart = (product) => {
+    dispatch(removeFromCart(product));
+  };
+
+  const handleQty = (e, item) => {
+    if (e.target.value) {
+      handleAddToCart(item);
+    } else {
+      handledecreaseCart(item);
+    }
   };
 
   return (
@@ -73,10 +94,8 @@ const CartTable = () => {
                         name="variant-quantity"
                         min="1"
                         step="1"
-                        // value={item.cartQuantity}
-                        // onChange={(e) =>
-                        //     handleQty(e, item)
-                        // }
+                        value={item.countcart}
+                        onChange={(e) => handleQty(e, item)}
                         className="text-gray-900 form-input border border-gray-300 w-16 rounded-sm focus:border-palette-light focus:ring-palette-light"
                       />
                     </td>
@@ -92,9 +111,7 @@ const CartTable = () => {
                       <button
                         aria-label="delete-item"
                         className=""
-                        // onClick={() =>
-                        //     handleRemoveFromCart(item)
-                        // }
+                        onClick={() => handleremoveFromCart(item)}
                       >
                         <i
                           className="fa fa-times w-8 h-8 text-palette-primary border border-palette-primary p-1 hover:bg-palette-lighter"
