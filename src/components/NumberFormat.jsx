@@ -20,23 +20,11 @@ function CustomNumeralNumericFormat(props) {
     return removeFormatting(_val);
   };
 
-  /*const _isCharacterSame = (compareMeta) => {
-    const isCharSame = isCharacterSame(compareMeta);
-    const { formattedValue, currentValue, formattedValueIndex, currentValueIndex } = compareMeta;
-    const curChar = currentValue[currentValueIndex];
-    const newChar = formattedValue[formattedValueIndex];
-    const curPersianChar = persianNumeral[Number(curChar)] ?? curChar;
-    const newPersianChar = persianNumeral[Number(newChar)] ?? newChar;
-
-    return isCharSame || curPersianChar === newPersianChar;
-  };*/
-
   return (
     <NumberFormatBase
     displayType="text"
       format={_format}
       removeFormatting={_removeFormatting}
-     // isCharacterSame={_isCharacterSame}
       {...rest}
     />
   );

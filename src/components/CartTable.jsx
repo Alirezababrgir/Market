@@ -9,6 +9,7 @@ import {
   decreaseCart,
   removeFromCart,
 } from "../slices/cartSlice";
+import NumberInput from "./NumberInput";
 
 const CartTable = () => {
   const cart = useSelector((state) => state.cart);
@@ -28,14 +29,6 @@ const CartTable = () => {
 
   const handleremoveFromCart = (product) => {
     dispatch(removeFromCart(product));
-  };
-
-  const handleQty = (e, item) => {
-    if (e.target.value) {
-      handleAddToCart(item);
-    } else {
-      handledecreaseCart(item);
-    }
   };
 
   return (
@@ -87,16 +80,10 @@ const CartTable = () => {
                       </Link>
                     </td>
                     <td className="font-primary font-medium px-4 sm:px-6 py-4">
-                      <input
-                        type="number"
-                        inputMode="numeric"
-                        id="variant-quantity"
-                        name="variant-quantity"
-                        min="1"
-                        step="1"
-                        value={item.countcart}
-                        onChange={(e) => handleQty(e, item)}
-                        className="text-gray-900 form-input border border-gray-300 w-16 rounded-sm focus:border-palette-light focus:ring-palette-light"
+                      <NumberInput
+                        incrementNumber={() => handleAddToCart(item)}
+                        Number={item.countcart}
+                        decrementNumber={() => handledecreaseCart(item)}
                       />
                     </td>
                     <td className="font-primary text-base font-light px-4 sm:px-6 py-4 hidden sm:table-cell">
@@ -109,14 +96,25 @@ const CartTable = () => {
                     </td>
                     <td className="font-primary font-medium px-4 sm:px-6 py-4">
                       <button
-                        aria-label="delete-item"
-                        className=""
                         onClick={() => handleremoveFromCart(item)}
+                        className="bg-gray-300 hover:bg-gray-400 text-red-800 font-bold py-2 px-4 rounded inline-flex items-center"
                       >
-                        <i
-                          className="fa fa-times w-8 h-8 text-palette-primary border border-palette-primary p-1 hover:bg-palette-lighter"
-                          aria-hidden="true"
-                        ></i>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke-width="1.5"
+                          stroke="currentColor"
+                          className="size-6"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M6 18 18 6M6 6l12 12"
+                          />
+                        </svg>
+
+                        <span>حذف</span>
                       </button>
                     </td>
                   </tr>
