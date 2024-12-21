@@ -23,7 +23,7 @@ const ProductCard = ({ product }) => {
             {description}
           </div>
           <div
-            className="text-palette-dark font-primary font-medium text-base absolute bottom-0 right-0 mb-4 pl-8 pr-4 pb-1 pt-2 bg-palette-lighter 
+            className="text-palette-dark font-primary font-medium text-base absolute bottom-0 right-0 mb-4 pl-8 pr-4 pb-1 pt-2 bg-palette-light
             rounded-tl-sm triangle"
           >
             <CustomNumeralNumericFormat

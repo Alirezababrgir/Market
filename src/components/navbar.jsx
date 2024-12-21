@@ -9,7 +9,7 @@ const Navbar = () => {
         <Link to="/" className="cursor-pointer">
           <h1 className="flex no-underline">
             <span className="text-xl font-primary font-bold tracking-tight pt-1">
-              فروشگاه استیکر موش تابا
+              فروشگاه آرایشی فرچه
             </span>
           </h1>
         </Link>
