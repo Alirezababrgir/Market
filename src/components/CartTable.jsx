@@ -153,7 +153,7 @@ const CartTable = () => {
             </Link>
 
             <Link
-              to="/"
+              to="/Market"
               className="border border-palette-primary text-palette-primary mt-5 text-lg font-primary font-semibold pt-2 pb-1 leading-relaxed flex 
       justify-center items-center focus:ring-1 focus:ring-palette-light focus:outline-none w-full hover:bg-palette-lighter rounded-sm"
             >
