@@ -1,14 +1,17 @@
 import "./App.css";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import MainLayout from "./components/mainlayout/mainlayout";
+import Navbar from "./components/navbar";
+import { Outlet } from "react-router-dom";
 function App() {
   return (
     <>
-      <HelmetProvider>
-        <Helmet title="فروشگاه استیکر" />
-      </HelmetProvider>
       <MainLayout>
-        <Helmet title="مشتبا فروشگاه استیکر"></Helmet>
+        <Navbar />
+        <Outlet />
+        <HelmetProvider>
+          <Helmet title="مشتبا فروشگاه استیکر"></Helmet>
+        </HelmetProvider>
       </MainLayout>
     </>
   );

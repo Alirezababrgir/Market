@@ -1,13 +1,18 @@
 import Header from "../header";
 import Navbar from "../navbar";
-import ProductListing from "../productlist";
+import { useSelector } from "react-redux";
+import { PaginateItems } from "../Paginate";
+
+//PAGINATE=>(6)products
 
 const MainLayout = ({ Children }) => {
+  const { items: products, status } = useSelector((state) => state.products);
+
   return (
     <div className="flex-col min-h-s">
       <Navbar />
       <Header />
-      <ProductListing />
+      <PaginateItems Productsperpage={8} products={products} status={status} />
       <main>{Children}</main>
     </div>
   );
